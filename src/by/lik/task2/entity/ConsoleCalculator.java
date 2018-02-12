@@ -157,7 +157,7 @@ public class ConsoleCalculator {
 
 				if (token.equals("^")) {
 					
-					stack.push(new BigDecimal(Math.pow(operand1.doubleValue(), operand2.doubleValue())));
+					stack.push(operand1.pow(operand2.intValue()));
 				
 				} else if (token.equals("*")) {
 					stack.push(operand1.multiply(operand2));
