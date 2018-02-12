@@ -157,10 +157,11 @@ public class ConsoleCalculator {
 
 				if (token.equals("^")) {
 					
-					try {
-						stack.push(operand1.pow(operand2.intValue()));
-					} catch (ArithmeticException exception) {
+					if(operand2.signum()<0){
 						stack.push(BigDecimal.ONE.divide(operand1.pow(operand2.negate().intValue())));
+						
+					} else {
+						stack.push(operand1.pow(operand2.intValue()));
 					}
 					
 				
