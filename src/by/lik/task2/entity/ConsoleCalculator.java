@@ -244,7 +244,7 @@ public class ConsoleCalculator {
 				} else {
 
 					while (!stack.empty() && !stack.peek().equals(OPENING_PARENTHESIS) && (MATHEMATICAL_OPERATIONS
-							.get(nextOperatorOrBracket) >= MATHEMATICAL_OPERATIONS.get(stack.peek()))) {
+							.get(nextOperatorOrBracket) > MATHEMATICAL_OPERATIONS.get(stack.peek()))) {
 						outLine.add(stack.pop());
 					}
 					stack.push(nextOperatorOrBracket);
