@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.*;
 
 public class ConsoleCalculator {
@@ -158,7 +159,7 @@ public class ConsoleCalculator {
 				if (token.equals("^")) {
 					
 					if(operand2.signum()<0){
-						stack.push(BigDecimal.ONE.divide(operand1.pow(operand2.negate().intValue())));
+						stack.push(BigDecimal.ONE.divide(operand1.pow(operand2.negate().intValue()),MathContext.DECIMAL128));
 						
 					} else {
 						stack.push(operand1.pow(operand2.intValue()));
@@ -171,7 +172,7 @@ public class ConsoleCalculator {
 				} else if (token.equals("/")) {
 
 					try {
-						stack.push(operand1.divide(operand2));
+						stack.push(operand1.divide(operand2,MathContext.DECIMAL128));
 					} catch (ArithmeticException exception) {
 						throw new CalculatorException("Деление на 0");
 					}
